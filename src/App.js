@@ -2,18 +2,26 @@ import React, { useState } from 'react';
 import { DeckGL } from '@deck.gl/react';
 import { Map } from 'react-map-gl';
 import { HeatmapLayer } from '@deck.gl/aggregation-layers';
+import Sidebar from './components/Sidebar';
+import './App.css';
 
 // Mapbox token
 const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
 function App() {
   const [viewState, setViewState] = useState({
-    longitude: 28.0473, // Updated to Johannesburg, South Africa
+    longitude: 28.0473,
     latitude: -26.2041,
     zoom: 4,
     pitch: 0,
     bearing: 0,
   });
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   // Dummy data for the heatmap layer
   const data = [
@@ -38,14 +46,47 @@ function App() {
     }),
   ];
 
+  const customMapStyle = {
+    version: 8,
+    sources: {
+      // Define your sources here
+    },
+    layers: [
+      // Define your layers here
+    ],
+    layout: {
+      'attribution-control': {
+        display: 'none'
+      },
+      'logo-control': {
+        display: 'none'
+      }
+    },
+    paint: {
+      // Paint properties
+    }
+  };
+
   return (
-      <DeckGL initialViewState={viewState} controller={true} layers={layers}>
-        <Map
-            mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
-            style={{ width: 400, height: 400 }} // Adjust size as needed
-            mapStyle="mapbox://styles/mapbox/dark-v11" // Use the dark-matter map style
-        />
-      </DeckGL>
+      <div style={{ display: 'flex', height: '100vh' }}>
+        <Sidebar isOpen={isSidebarOpen} />
+        <button
+            className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`}
+            onClick={toggleSidebar}
+            style={{left: isSidebarOpen ? '320px' : '1px'}} // Dynamically adjust based on isSidebarOpen
+        >
+          <div className="icon"></div>
+        </button>
+        <div style={{flex: 1, position: 'relative'}}>
+          <DeckGL initialViewState={viewState} controller={true} layers={layers}>
+            <Map
+                mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
+                style={{ width: '100%', height: '100%' }}
+                mapStyle="mapbox://styles/mapbox/dark-v11"
+            />
+          </DeckGL>
+        </div>
+      </div>
   );
 }
 

@@ -36,3 +36,61 @@
     transform: rotate(360deg);
   }
 }
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px; /* Adjust as needed */
+  height: 100vh;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1000; /* Ensure this is higher than the map's z-index */
+
+}
+
+.title, .subtitle {
+  margin: 0;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.toggle-btn {
+  position: fixed;
+  width: auto; /* Adjust the width as needed */
+  padding: 10px 20px; /* Adjust the padding as needed */
+  top: 50%; /* Center vertically */
+  left: 320px; /* Adjust based on your sidebar's width */
+  transform: translateY(-50%); /* Center vertically with respect to its height */
+  z-index: 1100; /* Ensure it's above the sidebar and map */
+  background-color: transparent; /* Example background color for visibility */
+  color: white; /* Example text/icon color for visibility */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Default styles for the vertical line icon */
+.icon {
+  width: 10px; /* Width of the vertical line */
+  height: 40px; /* Height of the vertical line */
+  background-color: grey; /* Color of the vertical line */
+  position: relative;
+  transition: transform 0.3s ease;
+  border-radius: 2px; /* Rounded border for the vertical line */
+}
