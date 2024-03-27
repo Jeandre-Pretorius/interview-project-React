@@ -18,7 +18,54 @@ const Sidebar = ({ isOpen }) => {
                     <h3>Card 2</h3>
                     <p>Card content goes here.</p>
                 </div>
-                {/* Add more cards as needed */}
+                <div className="card">
+                    <h3>Card 1</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 2</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 1</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 2</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 1</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 2</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 1</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 2</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 1</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 2</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 1</h3>
+                    <p>Card content goes here.</p>
+                </div>
+                <div className="card">
+                    <h3>Card 2</h3>
+                    <p>Card content goes here.</p>
+                </div>
             </div>
         </div>
     );
