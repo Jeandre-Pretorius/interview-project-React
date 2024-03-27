@@ -4,7 +4,13 @@ Please add your name here if you read the README: {First Name} {Last Name}
 
 ## Getting started
 
+Make sure that you are using node version 18
+
 In the project directory, you can run:
+
+### `npm install`
+
+## To start the project
 
 ### `npm start`
 
