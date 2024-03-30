@@ -6,6 +6,12 @@
 .pnp.js
 /dummy-api/node_modules
 
+package-lock.json
+package.json
+/dummy-api/package-lock.json
+/dummy-api/package.json
+
+
 # testing
 /coverage
 
