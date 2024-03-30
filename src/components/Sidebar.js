@@ -1,71 +1,20 @@
 import React from 'react';
+import Card from './Card';
+import Table from '@mui/joy/Table';
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar = ({ isOpen, data }) => {
     if (!isOpen) {
         return null;
     }
 
     return (
         <div className="sidebar">
-            <h1 className="title">Title</h1>
-            <h2 className="subtitle">Subtitle</h2>
+            <h1 className="title">CubeZoo</h1>
+            <h2 className="subtitle">Interview</h2>
+
             <div className="cards">
-                <div className="card">
-                    <h3>Card 1</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 2</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 1</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 2</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 1</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 2</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 1</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 2</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 1</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 2</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 1</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 2</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 1</h3>
-                    <p>Card content goes here.</p>
-                </div>
-                <div className="card">
-                    <h3>Card 2</h3>
-                    <p>Card content goes here.</p>
-                </div>
+                <Card title="Test" content="Yeah yeah yeah"></Card>
+                <Card title="Test 2" content="Yamate Kudasai"></Card>
             </div>
         </div>
     );
