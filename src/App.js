@@ -28,7 +28,6 @@ function App() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    console.log(API_URL+'/ZA_populations');
     fetch(API_URL+'/ZA_populations')
     .then(response => {
       if (!response.ok) {
@@ -37,7 +36,6 @@ function App() {
       return response.json(); // Only call .json() once here
     })
     .then(data => {
-      console.log(data); // Log the data here, after it has been parsed
       setData(data);
     })
     .catch(error => console.error('There was a problem with your fetch operation:', error));
@@ -53,27 +51,6 @@ function App() {
       getWeight: d => parseInt(d.population),
     }),
   ];
-
-  const customMapStyle = {
-    version: 8,
-    sources: {
-      // Define your sources here
-    },
-    layers: [
-      // Define your layers here
-    ],
-    layout: {
-      'attribution-control': {
-        display: 'none'
-      },
-      'logo-control': {
-        display: 'none'
-      }
-    },
-    paint: {
-      // Paint properties
-    }
-  };
 
   return (
       <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
