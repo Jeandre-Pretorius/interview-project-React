@@ -13,8 +13,6 @@ const Sidebar = ({ isOpen, data }) => {
     useEffect(() => {
         if (populationStatus === 'idle') {
         dispatch(fetchPopulation());
-        }else{
-            console.log(totalPopulation);
         }
     }, [dispatch, populationStatus]);
 
