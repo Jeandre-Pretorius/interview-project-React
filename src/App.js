@@ -52,7 +52,6 @@ function App() {
       return response.json();
     })
     .then(damData => {
-      console.log('Fetched dam data:', damData); // Add this line
       setDamData(damData);
     })
     .catch(error => console.error('There was a problem with your fetch operation:', error));
