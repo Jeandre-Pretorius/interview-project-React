@@ -99,7 +99,7 @@ function App() {
 
   return (
       <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-        <Sidebar populationData={populationData} isOpen={isSidebarOpen} />
+        <Sidebar damData={damData} isOpen={isSidebarOpen} />
         <button
             className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`}
             onClick={toggleSidebar}

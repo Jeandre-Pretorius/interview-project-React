@@ -57,8 +57,9 @@
 }
 
 
-.title, .subtitle {
+.title {
   margin: 0;
+  padding-bottom: 1rem;
 }
 
 .cards {
@@ -101,3 +102,28 @@
   transition: transform 0.3s ease;
   border-radius: 2px; /* Rounded border for the vertical line */
 }
+
+/* Styling scrollbars for Chrome, Safari, Edge */
+.sidebar::-webkit-scrollbar {
+  width: 10px; /* Adjust the width of the scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #2c3e50; /* Scrollbar track color */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: grey; /* Scrollbar handle color */
+  border-radius: 5px; /* Rounded corners for the scrollbar handle */
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: grey; /* Scrollbar handle color on hover */
+}
+
+/* Styling scrollbars for Firefox */
+.sidebar {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: grey #2c3e50; /* Scrollbar handle color, Scrollbar track color */
+}
+
