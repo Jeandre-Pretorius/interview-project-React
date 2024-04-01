@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { DeckGL } from '@deck.gl/react';
 import { Map } from 'react-map-gl';
-import { HeatmapLayer } from '@deck.gl/aggregation-layers';
+import { HeatmapLayer, HexagonLayer } from '@deck.gl/aggregation-layers';
 import Sidebar from './components/Sidebar';
 import './App.css';
 import '@fontsource/inter';
+import { ScatterplotLayer } from '@deck.gl/layers';
 
 // Mapbox token
 const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
@@ -51,20 +52,34 @@ function App() {
       return response.json();
     })
     .then(damData => {
+      console.log('Fetched dam data:', damData); // Add this line
       setDamData(damData);
     })
     .catch(error => console.error('There was a problem with your fetch operation:', error));
   }, []);
 
   const layers = [
-    new HeatmapLayer({
-      id: 'heatmapLayer',
-      populationData,
+    new HexagonLayer({
+      id: 'hexagonLayer',
+      data: damData,
+      pickable: true,
+      extruded: true,
+      radius: 2000,
+      elevationScale: 100,
       getPosition: (d) => {
-        return [parseFloat(d.lng), parseFloat(d.lat)];
+        const latitude = parseFloat(d.latitude_deg) + (parseFloat(d.lat_min) / 60) + (parseFloat(d.lat_sec) / 3600);
+        const longitude = parseFloat(d.longitude_deg) + (parseFloat(d.long_min) / 60) + (parseFloat(d.long_sec) / 3600);
+        return [longitude, -latitude];
       },
-      getWeight: d => parseInt(d.population),
     }),
+    // new HeatmapLayer({
+    //   id: 'heatmapLayer',
+    //   data: populationData,
+    //   getPosition: (d) => {
+    //     return [parseFloat(d.lng), parseFloat(d.lat)];
+    //   },
+    //   getWeight: d => parseInt(d.population),
+    // }),
   ];
 
   return (
