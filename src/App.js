@@ -25,7 +25,8 @@ function App() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const [data, setData] = useState(null);
+  const [populationData, setPopulationData] = useState(null);
+  const [damData, setDamData] = useState(null);
 
   useEffect(() => {
     fetch(API_URL+'/ZA_populations')
@@ -33,10 +34,24 @@ function App() {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      return response.json(); // Only call .json() once here
+      return response.json();
     })
-    .then(data => {
-      setData(data);
+    .then(populationData => {
+      setPopulationData(populationData);
+    })
+    .catch(error => console.error('There was a problem with your fetch operation:', error));
+  }, []);
+
+  useEffect(() => {
+    fetch(API_URL+'/ZA_dams')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(damData => {
+      setDamData(damData);
     })
     .catch(error => console.error('There was a problem with your fetch operation:', error));
   }, []);
@@ -44,7 +59,7 @@ function App() {
   const layers = [
     new HeatmapLayer({
       id: 'heatmapLayer',
-      data,
+      populationData,
       getPosition: (d) => {
         return [parseFloat(d.lng), parseFloat(d.lat)];
       },
@@ -54,7 +69,7 @@ function App() {
 
   return (
       <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-        <Sidebar data={data} isOpen={isSidebarOpen} />
+        <Sidebar populationData={populationData} isOpen={isSidebarOpen} />
         <button
             className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`}
             onClick={toggleSidebar}
