@@ -1,6 +1,6 @@
 # Congratulations! This is the first place you should have looked.
 
-Please add your name here if you read the README: {First Name} {Last Name}
+Please add your name here if you read t {First Name} {Last Name}he README:
 
 ## Start Here
 
